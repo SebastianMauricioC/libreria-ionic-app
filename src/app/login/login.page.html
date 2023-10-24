@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Inicio de sesión</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <h1 style="font-family: 'Times New Roman', Times, serif;">Bienvenido</h1>
+      <ion-col>
+        <form>
+          <mat-form-field style="margin-top: 2%" class="example-full-width">
+            <mat-label>Correo electrónico</mat-label>
+            <input type="email" matInput placeholder="Ingrese su correo electrónico">
+          </mat-form-field>
+
+          <mat-form-field style="margin-top: 2%" class="example-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput placeholder="Ingrese su contraseña">
+          </mat-form-field>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

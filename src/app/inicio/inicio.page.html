@@ -1,0 +1,104 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet">
+</head>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Librería Pajaritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <a href="/inicio/"><mat-icon aria-hidden="false" aria-label="Perfil"
+            fontIcon="arrow_back" style></mat-icon></a>
+      </ion-col>
+      <ion-col>
+        <h1 style="color: #121D46; font-weight: bold;">LIBRERIAPAJARITOS</h1>
+      </ion-col>
+
+      <ion-col>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1>Explorar</h1>
+      </ion-col>
+    </ion-row>
+    <form>
+      <ion-row>
+        <ion-col>
+          <ion-input
+            aria-label="Título, autor, categoría"
+            placeholder="Título, autor, categoría"
+            class="custom"
+            helperText="¡Haga su búsqueda!"
+            [counter]="true"
+            [maxlength]="40"></ion-input>
+        </ion-col>
+        <button style="background-color: inherit;" type="submit" name="submit"><i class="material-icons">search</i></button>
+      </ion-row>
+    </form>
+    <ion-row>
+      <ion-col>
+        <h1>Categorías</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card style="min-height: 80%; background-color: #EDB2B2;">
+          <ion-card-header>
+            <ion-card-title>Cómics y Manga</ion-card-title>
+          </ion-card-header>
+          <ion-card-content><img style="width: 10%" src="../../assets/cym.png"></ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="min-height: 80%; background-color: #EBB9D7;">
+          <ion-card-header>
+            <ion-card-title>Gastronomía</ion-card-title>
+          </ion-card-header>
+          <ion-card-content><img style="width: 10%" src="../../assets/gast.png"></ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="min-height: 80%; background-color: #CDBEEB;">
+          <ion-card-header>
+            <ion-card-title>Ciencias e informática</ion-card-title>
+          </ion-card-header>
+          <ion-card-content><img style="width: 10%" src="../../assets/cei.png"></ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="min-height: 80%; background-color: #C5EDF4;">
+          <ion-card-header>
+            <ion-card-title>Literatura</ion-card-title>
+          </ion-card-header>
+          <ion-card-content><img style="width: 10%" src="../../assets/lit.png"></ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card style="min-height: 80%; background-color: #C7DCF8;">
+          <ion-card-header>
+            <ion-card-title>Economía e administración</ion-card-title>
+          </ion-card-header>
+          <ion-card-content><img style="width: 10%"
+              src="../../assets/econom.png"></ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
