@@ -8,6 +8,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { FormLoginComponent } from '../form-login/form-login.component';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -29,6 +30,6 @@ import { LoginPage } from './login.page';
     MatNativeDateModule,
     MatInputModule,
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage, FormLoginComponent]
 })
 export class LoginPageModule {}

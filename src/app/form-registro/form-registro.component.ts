@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular'
 
 import { ServiciosService } from '../servicios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-component',
   templateUrl: './form-registro.component.html',
   styleUrls: ['./form-registro.component.scss']
 })
-export class FormComponentComponent {
+export class FormComponentComponent{
 
-  constructor(private alertController: AlertController, private serviciosService: ServiciosService) { }
+  constructor(private alertController: AlertController, private serviciosService: ServiciosService, private router:Router) { }
 
   async alertaRegistroCorrecto() {
     console.log('Correcto ✅')
@@ -69,7 +70,8 @@ export class FormComponentComponent {
       this.alertaRegistroCorrecto();
       this.serviciosService.registrar(this.formData.email, this.formData.password)
       .then(response =>{
-        console.log("Usuario registrado correctamente ╰(*°▽°*)╯");
+        console.log("Usuario registrado correctamente 💹");
+        this.router.navigate(['/login/']);
       })
       .catch(error => console.log(error));
     }

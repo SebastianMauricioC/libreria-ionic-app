@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiciosService } from '../servicios.service';
+
 
 @Component({
   selector: 'app-form-login',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormLoginComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private serviciosService: ServiciosService) { }
+
+
+  formData = {email: '', password: ''};
+
+  onSubmit(){
+    console.log(this.formData);
+  }
 
   ngOnInit() {}
 

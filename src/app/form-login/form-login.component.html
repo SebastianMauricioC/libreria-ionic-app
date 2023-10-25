@@ -1,3 +1,45 @@
-<p>
-  form-login works!
-</p>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet">
+</head>
+
+<form (ngSubmit)="onSubmit()">
+  <ion-row>
+    <ion-col>
+      <ion-input [(ngModel)]="formData.email" name="email" required
+        type="email"
+        label="Correo electrónico"
+        labelPlacement="floating"
+        helperText="Ingrese un correo electrónico válido"
+        errorText="Email inválido"
+        ngModel
+        password
+        style="font-family: 'Open Sans', sans-serif;;"></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-top: 5%">
+    <ion-col>
+      <ion-input [(ngModel)]="formData.password" name="password" required
+        type="password"
+        label="Contraseña"
+        labelPlacement="floating"
+        helperText="Ingrese una contraseña válida"
+        errorText="Contraseña inválida"
+        ngModel
+        password></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <input style="height: 15%;" type="image"
+        src="../../assets/boton_registro.png">
+      <p>No tienes una cuenta?</p> <a style="text-decoration: none;"
+        href="/registro/"><p style="color: #FA5494;">Regístrate</p></a>
+    </ion-col>
+
+  </ion-row>
+</form>
