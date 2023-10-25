@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "libreriapajaritos-b639d": {
+      "hosting": {
+        "app": [
+          "libreriapajaritos-b639d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "libreriapajaritos-b639d"
+  }
+}

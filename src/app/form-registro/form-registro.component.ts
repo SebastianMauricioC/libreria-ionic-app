@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular'
 
+import { ServiciosService } from '../servicios.service';
+
 @Component({
   selector: 'app-form-component',
   templateUrl: './form-registro.component.html',
@@ -8,7 +10,7 @@ import { AlertController } from '@ionic/angular'
 })
 export class FormComponentComponent {
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private serviciosService: ServiciosService) { }
 
   async alertaRegistroCorrecto() {
     console.log('Correcto ✅')
@@ -58,12 +60,18 @@ export class FormComponentComponent {
   onSubmit() {
     // Lógica de envío de datos
     console.log('Datos enviados:', this.formData);
+    // Modificar validaciones con requerimientos de Firebase
     if (this.formData.email == '' || this.formData.genero == '' || this.formData.password == '') {
       this.alertaRegistroIncorrecto();
     } else if (this.formData.password != this.formData.passwordDos) {
       this.alertaRegistroIncorrectoPassword();
     } else {
       this.alertaRegistroCorrecto();
+      this.serviciosService.registrar(this.formData.email, this.formData.password)
+      .then(response =>{
+        console.log("Usuario registrado correctamente ╰(*°▽°*)╯");
+      })
+      .catch(error => console.log(error));
     }
     console.log(this.formData.email, this.formData.password)
 
