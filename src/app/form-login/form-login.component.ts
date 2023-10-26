@@ -15,7 +15,14 @@ export class FormLoginComponent  implements OnInit {
   formData = {email: '', password: ''};
 
   onSubmit(){
-    console.log(this.formData);
+    this.serviciosService.iniciarSesion(this.formData.email, this.formData.password)
+      .then(response => console.log("Correcto ✔"))
+      .catch(error => console.log(error))
+
+  }
+
+  cerrarSesion(){
+    this.serviciosService.cerrarSesion();
   }
 
   ngOnInit() {}
