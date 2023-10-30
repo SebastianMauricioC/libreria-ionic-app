@@ -16,7 +16,21 @@ export class ServiciosService {
     const alert = await this.alertController.create({
       header: 'Correcto',
       subHeader: 'Se ha registrado correctamente',
-      message: '¡Ahora puede iniciar sesión!',
+      message: '¡Bienvenido ' + this.auth.currentUser,
+      buttons: ['Aceptar'],
+      mode: 'ios',
+    });
+
+    await alert.present();
+  }
+
+  async alertaInicioSesionCorrecto() {
+    console.log('Correcto ✅')
+
+    const alert = await this.alertController.create({
+      header: 'Correcto',
+      subHeader: 'Ha iniciado sesión',
+      message: '¡Bienvenido' + this.auth.name + '!',
       buttons: ['Aceptar'],
       mode: 'ios',
     });
@@ -52,8 +66,22 @@ export class ServiciosService {
     await alert.present();
   }
 
+  async alertaInicioSesionIncorrecto() {
+    console.log('Incorrecto ❌')
+    const alert = await this.alertController.create({
+      header: 'Error',
+      subHeader: 'Ha habido un problema',
+      message: 'La contraseña o correo electrónico que has ingresado son incorrectos, ingrésalos nuevamente',
+      buttons: ['Aceptar'],
+      mode: 'ios',
+    });
+
+
+    await alert.present();
+  }
+
   registrar(email: any, password: any) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
+    return createUserWithEmailAndPassword(this.auth, email, password), signOut(this.auth);;
   }
 
   iniciarSesion(email: any, password: any) {

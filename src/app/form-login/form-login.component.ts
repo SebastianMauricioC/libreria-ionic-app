@@ -16,8 +16,8 @@ export class FormLoginComponent  implements OnInit {
 
   onSubmit(){
     this.serviciosService.iniciarSesion(this.formData.email, this.formData.password)
-      .then(response => console.log("Correcto ✔"))
-      .catch(error => console.log(error))
+      .then(response => this.serviciosService.alertaInicioSesionCorrecto())
+      .catch(error => this.serviciosService.alertaInicioSesionIncorrecto())
 
   }
 
