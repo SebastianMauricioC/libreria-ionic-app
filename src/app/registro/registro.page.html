@@ -1,7 +1,9 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet">
 </head>
 
 <ion-header [translucent]="true">
@@ -17,42 +19,43 @@
   </ion-header>
 
   <ion-grid>
-        <ion-row>
-          <ion-col>
-            <a href="/inicio/"><mat-icon aria-hidden="false" aria-label="Perfil" fontIcon="arrow_back"></mat-icon></a>
-          </ion-col>
-          <ion-col>
-            <h1 style="color: #121D46; font-weight: bold;">LIBRERIAPAJARITOS</h1>
-            <h2>{{mensaje}}</h2>
-          </ion-col>
+    <ion-row>
+      <ion-col>
+        <a href="/inicio/"><mat-icon aria-hidden="false" aria-label="Perfil"
+            fontIcon="arrow_back"></mat-icon></a>
+      </ion-col>
+      <ion-col>
+        <h1 style="color: #121D46; font-weight: bold;">LIBRERIAPAJARITOS</h1>
+      </ion-col>
 
-          <ion-col>
-          </ion-col>
-        </ion-row>
+      <ion-col>
+      </ion-col>
+    </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <h2>Crea tu cuenta</h2>
-          </ion-col>
-        </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Crea tu cuenta</h1>
+      </ion-col>
+    </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <p style="font-style: italic;">¡Es necesario tener cuenta para comprar libros!</p>
-          </ion-col>
-        </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2 style="font-style: italic;">¡Es necesario tener cuenta para comprar
+          libros!</h2>
+      </ion-col>
+    </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <img style="margin-top: 10%; height: 70%;" src="../../assets/chica_registro.png">
-          </ion-col>
-        </ion-row>
+    <ion-row>
+      <ion-col>
+        <img style="height: 70%;" src="../../assets/chica_registro.png">
+      </ion-col>
+    </ion-row>
 
-        <ion-row>
-          <ion-col>
-          <app-form-component></app-form-component>
-          </ion-col>
-        </ion-row>
+    <ion-row>
+      <ion-col>
+        <app-form-component></app-form-component>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
 </ion-content>
