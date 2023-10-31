@@ -1,30 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiciosService } from '../services/servicios.service';
 
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
   styleUrls: ['./form-login.component.scss'],
 })
-export class FormLoginComponent  implements OnInit {
+export class FormLoginComponent implements OnInit {
 
-  constructor(private serviciosService: ServiciosService) { }
+  constructor(private serviciosService: ServiciosService, private router: Router) { }
 
 
-  formData = {email: '', password: ''};
+  formData = { email: '', password: '' };
 
-  onSubmit(){
+  onSubmit() {
     this.serviciosService.iniciarSesion(this.formData.email, this.formData.password)
-      .then(response => this.serviciosService.alertaInicioSesionCorrecto())
-      .catch(error => this.serviciosService.alertaInicioSesionIncorrecto())
+      .then(response => {
+        this.router.navigate(['/inicio/'])
+        this.serviciosService.alertaInicioSesionCorrecto();
+        console.log(response)
+      })
+      .catch(error => {
+        this.serviciosService.alertaInicioSesionIncorrecto();
+        console.log(error)
+      }
+      )
 
   }
 
-  cerrarSesion(){
+  cerrarSesion() {
     this.serviciosService.cerrarSesion();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

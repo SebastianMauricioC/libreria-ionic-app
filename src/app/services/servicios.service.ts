@@ -30,7 +30,21 @@ export class ServiciosService {
     const alert = await this.alertController.create({
       header: 'Correcto',
       subHeader: 'Ha iniciado sesión',
-      message: '¡Bienvenido' + this.auth.name + '!',
+      message: '¡Bienvenido!',
+      buttons: ['Aceptar'],
+      mode: 'ios',
+    });
+
+    await alert.present();
+  }
+
+  async alertaSesiónCerradaCorrecto() {
+    console.log('Correcto ✅')
+
+    const alert = await this.alertController.create({
+      header: 'Correcto',
+      subHeader: 'Ha cerrado su sesión',
+      message: '¡Hasta luego!',
       buttons: ['Aceptar'],
       mode: 'ios',
     });

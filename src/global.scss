@@ -29,6 +29,14 @@ ion-content{
     font-family: 'Open Sans', system-ui, sans-serif;
 }
 
+button {
+  background-color: transparent;
+}
+
+button:hover{
+  color: blue
+}
+
 ion-col {
     text-align: center;
   }
