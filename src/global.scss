@@ -29,6 +29,13 @@ ion-content{
     font-family: 'Open Sans', system-ui, sans-serif;
 }
 
+ion-card{
+  border: black;
+  border-style: solid;
+  min-height: 80%;
+  max-height: 80%;
+}
+
 button {
   background-color: transparent;
 }

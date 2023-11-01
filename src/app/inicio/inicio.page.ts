@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ServiciosService } from '../services/servicios.service';
 import { Router } from '@angular/router';
 
+import Persona from '../interfaces/persona';
+
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -39,6 +42,14 @@ export class InicioPage implements OnInit {
       },
     },
   ];
+
+  formData = { nombre: '', autor: '', categoria: '', precio: '', stock: '', favorito: '' };
+
+  async agregarLibro() {
+    console.log(this.formData)
+    const response = this.serviciosService.agregarLibro(this.formData);
+    console.log(response);
+  }
 
   ngOnInit() {
   }

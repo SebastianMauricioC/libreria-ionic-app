@@ -28,13 +28,8 @@ export class FormLoginComponent implements OnInit {
         console.log(error)
       }
       )
-
   }
-
-  cerrarSesion() {
-    this.serviciosService.cerrarSesion();
-  }
-
+  
   ngOnInit() { }
 
 }

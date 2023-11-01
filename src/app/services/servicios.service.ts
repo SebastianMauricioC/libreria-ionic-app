@@ -3,12 +3,16 @@ import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
 
+import { Firestore, collection, addDoc } from '@angular/fire/firestore'
+import Persona from '../interfaces/persona';
+import Libro from '../interfaces/libro';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosService {
 
-  constructor(private auth: Auth, private alertController: AlertController) { }
+  constructor(private auth: Auth, private firestore: Firestore, private alertController: AlertController) { }
 
   async alertaRegistroCorrecto() {
     console.log('Correcto ✅')
@@ -105,6 +109,21 @@ export class ServiciosService {
   cerrarSesion() {
     return signOut(this.auth);
   }
+
+  usuarioCredenciales() {
+    return this.auth.name
+  }
+
+  agregarPersona(persona: Persona) {
+    const personaRef = collection(this.firestore, 'personas');
+    return addDoc(personaRef, persona);
+  }
+
+  agregarLibro(libro: Libro) {
+    const libroRef = collection(this.firestore, 'libros');
+    return addDoc(libroRef, libro);
+  }
+
 
 
 }
