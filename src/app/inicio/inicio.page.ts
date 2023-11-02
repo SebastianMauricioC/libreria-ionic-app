@@ -53,13 +53,14 @@ export class InicioPage implements OnInit {
 
   libros: any;
 
-  async readRobots() {
+  async readLibros() {
     this.libros = await this.serviciosService.getLibros();
   }
 
 
   ngOnInit() {
-    this.readRobots()
+    this.readLibros()
+    this.serviciosService.hacerQuery('MATERIAL ')
   }
 
 

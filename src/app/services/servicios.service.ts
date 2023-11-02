@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updatePassword } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
 
-import { Firestore, collection, addDoc, collectionData, getDocs, query } from '@angular/fire/firestore'
+import { Firestore, collection, addDoc, collectionData, getDocs, query, deleteDoc, doc, where } from '@angular/fire/firestore'
 import Persona from '../interfaces/persona';
 import Libro from '../interfaces/libro';
 
@@ -135,6 +135,20 @@ export class ServiciosService {
     return (
       await getDocs(query(collection(this.firestore, 'libros')))
     ).docs.map((libros) => libros.data());
+  }
+
+  async eliminarLibro(id: any) {
+    await deleteDoc(doc(this.firestore, "libros", id));
+  }
+
+  async hacerQuery(nombre: any) {
+    const libroRef = collection(this.firestore, 'libros');
+    const q = query(collection(this.firestore, "libros"), where("nombre", "==", nombre));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+    });
   }
 
 }
