@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updatePassword } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
 
-import { Firestore, collection, addDoc } from '@angular/fire/firestore'
+import { Firestore, collection, addDoc, collectionData, getDocs, query } from '@angular/fire/firestore'
 import Persona from '../interfaces/persona';
 import Libro from '../interfaces/libro';
+
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -124,6 +126,15 @@ export class ServiciosService {
     return addDoc(libroRef, libro);
   }
 
+  obtenerLibros(): Observable<Libro[]> {
+    const libroRef = collection(this.firestore, 'libros');
+    return collectionData(libroRef, { idField: 'autor' }) as Observable<Libro[]>;
+  }
 
+  async getLibros() {
+    return (
+      await getDocs(query(collection(this.firestore, 'libros')))
+    ).docs.map((libros) => libros.data());
+  }
 
 }

@@ -6,4 +6,5 @@ export default interface Libro {
     precio: string;
     stock: string;
     favorito: string;
+    imagen: string;
 }

@@ -43,7 +43,7 @@ export class InicioPage implements OnInit {
     },
   ];
 
-  formData = { nombre: '', autor: '', categoria: '', precio: '', stock: '', favorito: '' };
+  formData = { nombre: '', autor: '', categoria: '', precio: '', stock: '', favorito: '', imagen: '' };
 
   async agregarLibro() {
     console.log(this.formData)
@@ -51,7 +51,15 @@ export class InicioPage implements OnInit {
     console.log(response);
   }
 
+  libros: any;
+
+  async readRobots() {
+    this.libros = await this.serviciosService.getLibros();
+  }
+
+
   ngOnInit() {
+    this.readRobots()
   }
 
 
