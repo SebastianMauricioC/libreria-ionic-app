@@ -13,6 +13,4 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
   }
 
-  nombre = this.serviciosService.usuarioCredenciales();
-
 }

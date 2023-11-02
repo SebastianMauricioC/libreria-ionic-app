@@ -15,6 +15,7 @@ export class InicioPage implements OnInit {
 
   constructor(private serviciosService: ServiciosService, private router: Router,) { }
 
+  // Cierra la sesión y redirige a el inicio de sesión
   cerrarSesionBoton() {
     this.serviciosService.cerrarSesion()
       .then(response => {
@@ -25,6 +26,7 @@ export class InicioPage implements OnInit {
       .catch(error => console.log(error))
   }
 
+  // Alertas de botones
   public alertButtons = [
     {
       text: 'No',
@@ -45,6 +47,7 @@ export class InicioPage implements OnInit {
 
   formData = { nombre: '', autor: '', categoria: '', precio: '', stock: '', favorito: '', imagen: '' };
 
+  // Agregar libro a base de datos
   async agregarLibro() {
     console.log(this.formData)
     const response = this.serviciosService.agregarLibro(this.formData);
@@ -53,6 +56,7 @@ export class InicioPage implements OnInit {
 
   libros: any;
 
+  // Obtener libros
   async readLibros() {
     this.libros = await this.serviciosService.getLibros();
   }
