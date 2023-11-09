@@ -154,10 +154,9 @@ export class ServiciosService {
   async hacerQuery(nombre: any) {
     const libroRef = collection(this.firestore, 'libros');
     const q = query(collection(this.firestore, "libros"), where("nombre", "==", nombre));
-
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      console.log(doc.data());
     });
   }
 

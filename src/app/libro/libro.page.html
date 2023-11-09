@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>nombrelibro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div *ngFor="let libro of libro">
+          <ion-card>
+            <img alt="{{libro.nombre}}" style="margin-top: 3%; height: 30vh;" src="{{libro.imagen}}" />
+            <ion-card-header>
+              <ion-card-title>{{libro.nombre}}</ion-card-title>
+              <ion-card-subtitle>{{libro.autor}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              ${{libro.precio}}
+            </ion-card-content>
+            <ion-card-content>
+              Stock disponible: <p style="color: rgb(226, 107, 127); font-weight: bold;">{{libro.stock}}</p>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <h1>Contenido</h1>
+        <h1>{{libro}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
