@@ -64,7 +64,6 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {
     this.readLibros()
-    this.serviciosService.hacerQuery('MATERIAL ')
   }
 
 
