@@ -151,6 +151,7 @@ export class ServiciosService {
     return signOut(this.auth);
   }
 
+  // Envía correo electrónico para recuperar contraseña a partir del correo electrónico
   cambiarContrasena(email: any){
     return sendPasswordResetEmail(this.auth, email);
   }
