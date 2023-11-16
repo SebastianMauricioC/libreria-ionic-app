@@ -61,6 +61,21 @@ export class ServiciosService {
     await alert.present();
   }
 
+  // Alerta de recuperación correcta
+  async alertaRecuperacionCorrecto() {
+    console.log('Correcto ✅')
+    const alert = await this.alertController.create({
+      header: 'Correcto',
+      subHeader: 'Por favor, revise su bandeja de entrada',
+      message: 'Se ha enviado un correo electrónico con su recuperación',
+      buttons: ['Aceptar'],
+      mode: 'ios',
+    });
+
+
+    await alert.present();
+  }
+
   // Alerta registro incorrecto en campos
   async alertaRegistroIncorrecto() {
     console.log('Incorrecto ❌')
@@ -98,6 +113,21 @@ export class ServiciosService {
       header: 'Error',
       subHeader: 'Ha habido un problema',
       message: 'La contraseña o correo electrónico que has ingresado son incorrectos, ingrésalos nuevamente',
+      buttons: ['Aceptar'],
+      mode: 'ios',
+    });
+
+
+    await alert.present();
+  }
+
+  // Alerta de recuperación incorrecta
+  async alertaRecuperacionIncorrecto() {
+    console.log('Incorrecto ❌')
+    const alert = await this.alertController.create({
+      header: 'Error',
+      subHeader: 'Ha habido un problema',
+      message: 'Ingrese un correo electrónico válido',
       buttons: ['Aceptar'],
       mode: 'ios',
     });
