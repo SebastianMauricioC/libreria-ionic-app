@@ -1,5 +1,7 @@
 {
   "name": "libreria-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
