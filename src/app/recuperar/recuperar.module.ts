@@ -8,6 +8,8 @@ import { RecuperarPageRoutingModule } from './recuperar-routing.module';
 
 import { RecuperarPage } from './recuperar.page';
 
+import { FormRecuperarComponent } from '../form-recuperar/form-recuperar.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { RecuperarPage } from './recuperar.page';
     IonicModule,
     RecuperarPageRoutingModule
   ],
-  declarations: [RecuperarPage]
+  declarations: [RecuperarPage, FormRecuperarComponent]
 })
 export class RecuperarPageModule {}

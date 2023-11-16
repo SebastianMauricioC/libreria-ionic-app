@@ -1,0 +1,14 @@
+<form (ngSubmit)="onSubmit()">
+  <ion-row>
+    <ion-col>
+      <ion-input [(ngModel)]="formData.email" name="email" required type="email" label="Correo electrónico"
+        labelPlacement="floating" helperText="Ingrese un correo electrónico válido" errorText="Email inválido" ngModel
+        password style="font-family: 'Open Sans', sans-serif;"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <input style="width: 80%;" type="image" src="../../assets/boton_recuperar.png">
+    </ion-col>
+  </ion-row>
+</form>
