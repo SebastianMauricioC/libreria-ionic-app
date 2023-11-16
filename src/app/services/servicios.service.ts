@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from '@angular/fire/auth';
 import { AlertController } from '@ionic/angular';
 
 import { Firestore, collection, addDoc, collectionData, getDocs, query, deleteDoc, doc, where } from '@angular/fire/firestore'
@@ -119,6 +119,10 @@ export class ServiciosService {
   // Cierra sesión del usuario
   cerrarSesion() {
     return signOut(this.auth);
+  }
+
+  cambiarContrasena(email: any){
+    return sendPasswordResetEmail(this.auth, email);
   }
 
   // Agrega persona a base de datos
