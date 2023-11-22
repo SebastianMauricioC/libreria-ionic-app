@@ -8,6 +8,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 import { IonicModule } from '@ionic/angular';
 
@@ -28,6 +29,7 @@ import { InicioPage } from './inicio.page';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    GoogleMapsModule,
   ],
   declarations: [InicioPage]
 })
