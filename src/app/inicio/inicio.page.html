@@ -1,7 +1,9 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet">
 </head>
 
 <ion-header>
@@ -17,18 +19,30 @@
   </ion-header>
 
   <ion-grid>
-    <ion-row>
-      <ion-col>
-        <google-map
-        height="50vh"
-  width="100%"
-></google-map>
-      </ion-col>
-    </ion-row>
+    <div style="background-color: #121D46; color: white; padding: 2%; margin-bottom: 5vh;">
+      <ion-row>
+        <ion-col>
+          <h1 style="font-weight: bold;">Visítanos</h1>
+          <h1>Merced 346, 8320310 Santiago, Región Metropolitana</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-bottom: 5vh;">
+        <ion-col>
+          <google-map
+            [zoom]="zoom"
+            [center]="center"
+            [options]="options"
+            height="50vh"
+            width="100%">
+          </google-map>
+        </ion-col>
+      </ion-row>
+    </div>
     <ion-row>
       <ion-col>
         <a href="/inicio/">
-          <mat-icon aria-hidden="false" aria-label="cart" fontIcon="shopping_cart"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="cart"
+            fontIcon="shopping_cart"></mat-icon>
         </a>
       </ion-col>
       <ion-col>
@@ -36,9 +50,11 @@
       </ion-col>
       <ion-col>
         <button id="confirmar-cerrar">
-          <mat-icon aria-hidden="false" aria-label="Cerrar sesión" fontIcon="logout">
+          <mat-icon aria-hidden="false" aria-label="Cerrar sesión"
+            fontIcon="logout">
           </mat-icon>
-          <ion-alert trigger="confirmar-cerrar" header="Alerta" subHeader="¿Desea realmente cerrar sesión?"
+          <ion-alert trigger="confirmar-cerrar" header="Alerta"
+            subHeader="¿Desea realmente cerrar sesión?"
             [buttons]="alertButtons"></ion-alert>
         </button>
       </ion-col>
@@ -52,7 +68,8 @@
     <form>
       <ion-row>
         <ion-col>
-          <ion-input aria-label="Título, autor, categoría" placeholder="Título, autor, categoría" class="custom"
+          <ion-input aria-label="Título, autor, categoría"
+            placeholder="Título, autor, categoría" class="custom"
             helperText="¡Haga su búsqueda!" [counter]="true" [maxlength]="40"></ion-input>
         </ion-col>
         <button style="background-color: inherit;" type="submit" name="submit"><i
@@ -103,7 +120,8 @@
           <ion-card-header>
             <ion-card-title>Economía y administración</ion-card-title>
           </ion-card-header>
-          <ion-card-content><img style="width: 20%" src="../../assets/econom.png"></ion-card-content>
+          <ion-card-content><img style="width: 20%"
+              src="../../assets/econom.png"></ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -119,7 +137,8 @@
       <ion-col>
         <div *ngFor="let libro of libros">
           <ion-card>
-            <img alt="{{libro.nombre}}" style="margin-top: 3%; height: 30vh;" src="{{libro.imagen}}" />
+            <img alt="{{libro.nombre}}" style="margin-top: 3%; height: 30vh;"
+              src="{{libro.imagen}}" />
             <ion-card-header>
               <ion-card-title>{{libro.nombre}}</ion-card-title>
               <ion-card-subtitle>{{libro.autor}}</ion-card-subtitle>
@@ -129,7 +148,8 @@
               ${{libro.precio}}
             </ion-card-content>
             <ion-card-content>
-              Stock disponible: <p style="color: rgb(226, 107, 127); font-weight: bold;">{{libro.stock}}</p>
+              Stock disponible: <p
+                style="color: rgb(226, 107, 127); font-weight: bold;">{{libro.stock}}</p>
             </ion-card-content>
             <button type="submit">Eliminar recomendación</button>
           </ion-card>
@@ -141,12 +161,18 @@
       <ion-row>
         <ion-col>
           <h1 style="color: #121D46;">Agregar Libro</h1>
-          <ion-input label="Nombre" labelPlacement="stacked" [(ngModel)]="formData.nombre" name="nombre"></ion-input>
-          <ion-input label="Autor" labelPlacement="stacked" [(ngModel)]="formData.autor" name="autor"></ion-input>
-          <ion-input label="Categoría" labelPlacement="stacked" [(ngModel)]="formData.categoria" name="categoria"></ion-input>
-          <ion-input label="Precio" labelPlacement="stacked" [(ngModel)]="formData.precio" name="precio"></ion-input>
-          <ion-input label="Stock" labelPlacement="stacked" [(ngModel)]="formData.stock" name="stock"></ion-input>
-          <ion-input label="Imagen" labelPlacement="stacked" [(ngModel)]="formData.imagen" name="imagen"></ion-input>
+          <ion-input label="Nombre" labelPlacement="stacked"
+            [(ngModel)]="formData.nombre" name="nombre"></ion-input>
+          <ion-input label="Autor" labelPlacement="stacked"
+            [(ngModel)]="formData.autor" name="autor"></ion-input>
+          <ion-input label="Categoría" labelPlacement="stacked"
+            [(ngModel)]="formData.categoria" name="categoria"></ion-input>
+          <ion-input label="Precio" labelPlacement="stacked"
+            [(ngModel)]="formData.precio" name="precio"></ion-input>
+          <ion-input label="Stock" labelPlacement="stacked"
+            [(ngModel)]="formData.stock" name="stock"></ion-input>
+          <ion-input label="Imagen" labelPlacement="stacked"
+            [(ngModel)]="formData.imagen" name="imagen"></ion-input>
         </ion-col>
         <ion-row>
           <ion-col>
@@ -156,7 +182,5 @@
       </ion-row>
     </form>
   </ion-grid>
-
-
 
 </ion-content>

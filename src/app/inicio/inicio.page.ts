@@ -3,9 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ServiciosService } from '../services/servicios.service';
 import { Router } from '@angular/router';
 
-import Persona from '../interfaces/persona';
-
-
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -13,7 +10,21 @@ import Persona from '../interfaces/persona';
 })
 export class InicioPage implements OnInit {
 
-  constructor(private serviciosService: ServiciosService, private router: Router,) { }
+  constructor(private serviciosService: ServiciosService, private router: Router,) {
+    this.center = { lat: -33.437423, lng: -70.6426087 };
+  }
+
+  zoom = 14;
+  center: google.maps.LatLngLiteral;
+  options: google.maps.MapOptions = {
+    mapTypeId: 'hybrid',
+    zoomControl: true,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    maxZoom: 28,
+    minZoom: 8,
+  };
+
 
   // Cierra la sesión y redirige a el inicio de sesión
   cerrarSesionBoton() {
