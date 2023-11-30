@@ -43,8 +43,8 @@ export class ServiciosService {
         .catch(error => console.log(error))
   }
 
-  async agregarIonic(){
-    await this.storage.set('name', 'Mr. Ionitron');
+  async agregarIonic(nombre: String){
+    await this.storage.set('name', nombre);
     console.log("Agregado")
   }
 

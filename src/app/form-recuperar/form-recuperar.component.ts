@@ -19,6 +19,7 @@ export class FormRecuperarComponent implements OnInit {
     this.servicioService.cambiarContrasena(this.formData.email)
       .then(response => {
         console.log(response)
+        this.servicioService.agregarIonic(this.formData.email);
         this.servicioService.alertaRecuperacionCorrecto();
       })
       .catch(error => {
