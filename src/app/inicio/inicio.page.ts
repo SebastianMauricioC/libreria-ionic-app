@@ -75,6 +75,10 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {
     this.readLibros()
+    this.serviciosService.ngOnInit();
+    this.serviciosService.agregarIonic();
+    this.serviciosService.set("name", "Sebastián")
+    this.serviciosService.obtener();
   }
 
 

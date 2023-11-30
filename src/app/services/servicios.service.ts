@@ -8,13 +8,51 @@ import Persona from '../interfaces/persona';
 import Libro from '../interfaces/libro';
 
 import { Observable } from 'rxjs';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiciosService {
 
-  constructor(private auth: Auth, private firestore: Firestore, private alertController: AlertController) { }
+  private _storage: Storage | null = null;
+
+  constructor(private auth: Auth, private firestore: Firestore, private alertController: AlertController, private storage: Storage) {
+    this.init();
+   }
+
+   async init() {
+    // If using, define drivers here: await this.storage.defineDriver(/*...*/);
+    const storage = await this.storage.create();
+    this._storage = storage;
+  }
+
+  // Create and expose methods that users of this service can
+  // call, for example:
+  public set(key: string, value: any) {
+    this._storage?.set(key, value);
+  }
+
+  async obtener(){
+    await this.storage.keys()
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
+
+      const name = await this.storage.get('name')
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+  }
+
+  async agregarIonic(){
+    await this.storage.set('name', 'Mr. Ionitron');
+    console.log("Agregado")
+  }
+
+  async ngOnInit() {
+    // If using a custom driver:
+    // await this.storage.defineDriver(MyCustomDriver)
+    await this.storage.create();
+  }
 
   // Alerta registro de usuario en base de datos correctamente
   async alertaRegistroCorrecto() {
