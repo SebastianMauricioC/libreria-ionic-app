@@ -19,32 +19,30 @@ export class ServiciosService {
 
   constructor(private auth: Auth, private firestore: Firestore, private alertController: AlertController, private storage: Storage) {
     this.init();
-   }
+  }
 
-   async init() {
-    // If using, define drivers here: await this.storage.defineDriver(/*...*/);
+  async init() {
     const storage = await this.storage.create();
     this._storage = storage;
   }
 
-  // Create and expose methods that users of this service can
-  // call, for example:
   public set(key: string, value: any) {
     this._storage?.set(key, value);
   }
 
-  async obtener(){
+  async obtener() {
     await this.storage.keys()
       .then(response => console.log(response))
       .catch(error => console.log(error))
 
-      const name = await this.storage.get('name')
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
+    const name = await this.storage.get('name')
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
   }
 
-  async agregarIonic(nombre: String){
-    await this.storage.set('name', nombre);
+  async agregarIonic(nombre: String) {
+    await this.storage.set('name', nombre)
+      .catch(error => console.log(error))
     console.log("Agregado")
   }
 
@@ -190,7 +188,7 @@ export class ServiciosService {
   }
 
   // Envía correo electrónico para recuperar contraseña a partir del correo electrónico
-  cambiarContrasena(email: any){
+  cambiarContrasena(email: any) {
     return sendPasswordResetEmail(this.auth, email);
   }
 
