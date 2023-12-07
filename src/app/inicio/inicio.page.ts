@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { ServiciosService } from '../services/servicios.service';
 import { Router } from '@angular/router';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class InicioPage implements OnInit {
 
-  constructor(private serviciosService: ServiciosService, private router: Router,) {
+  constructor(private serviciosService: ServiciosService, private router: Router, private firestore: Firestore) {
     this.center = { lat: -33.437423, lng: -70.6426087 };
   }
 
@@ -66,6 +68,11 @@ export class InicioPage implements OnInit {
   }
 
   libros: any;
+
+  async submitForm(nombre: string) {
+    console.log('Libro eliminado:', nombre);
+    this.serviciosService.eliminarDoc(nombre);
+  }
 
   // Obtener libros
   async readLibros() {

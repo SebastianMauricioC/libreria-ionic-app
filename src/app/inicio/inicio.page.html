@@ -42,8 +42,8 @@
     <ion-row>
       <ion-col>
         <a href="/inicio/">
-          <mat-icon aria-hidden="false" aria-label="cart"
-            fontIcon="shopping_cart"></mat-icon>
+          <mat-icon aria-hidden="false" aria-label="home"
+            fontIcon="home"></mat-icon>
         </a>
       </ion-col>
       <ion-col>
@@ -149,21 +149,23 @@
       <ion-col>
         <div *ngFor="let libro of libros">
           <ion-card>
-            <img alt="{{libro.nombre}}" style="margin-top: 3%; height: 30vh;"
-              src="{{libro.imagen}}" />
-            <ion-card-header>
-              <ion-card-title>{{libro.nombre}}</ion-card-title>
-              <ion-card-subtitle>{{libro.autor}}</ion-card-subtitle>
-            </ion-card-header>
+            <form (submit)="submitForm(libro.nombre)">
+              <img alt="{{libro.nombre}}" style="margin-top: 3%; height: 30vh;"
+                src="{{libro.imagen}}" />
+              <ion-card-header>
+                <ion-card-title>{{libro.nombre}}</ion-card-title>
+                <ion-card-subtitle>{{libro.autor}}</ion-card-subtitle>
+              </ion-card-header>
 
-            <ion-card-content>
-              ${{libro.precio}}
-            </ion-card-content>
-            <ion-card-content>
-              Stock disponible: <p
-                style="color: rgb(226, 107, 127); font-weight: bold;">{{libro.stock}}</p>
-            </ion-card-content>
-            <button type="submit">Eliminar recomendación</button>
+              <ion-card-content>
+                ${{libro.precio}}
+              </ion-card-content>
+              <ion-card-content>
+                Stock disponible: <p
+                  style="color: rgb(226, 107, 127); font-weight: bold;">{{libro.stock}}</p>
+              </ion-card-content>
+              <button type="submit">Eliminar recomendación</button>
+            </form>
           </ion-card>
         </div>
 
@@ -185,7 +187,7 @@
             [(ngModel)]="formData.stock" name="stock"></ion-input>
           <ion-input label="Imagen" labelPlacement="stacked"
             [(ngModel)]="formData.imagen" name="imagen"></ion-input>
-            <ion-input label="Favoritos" labelPlacement="stacked"
+          <ion-input label="Favoritos" labelPlacement="stacked"
             [(ngModel)]="formData.favorito" name="favorito"></ion-input>
         </ion-col>
         <ion-row>

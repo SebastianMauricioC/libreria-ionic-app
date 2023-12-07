@@ -170,6 +170,45 @@ export class ServiciosService {
     await alert.present();
   }
 
+  async alertaLibroEliminado() {
+    console.log('Incorrecto ❌')
+    const alert = await this.alertController.create({
+      header: 'Correcto',
+      subHeader: 'Se ha eliminado el libro correctamente',
+      message: 'Presione aceptar',
+      buttons: ['Aceptar'],
+      mode: 'ios',
+    });
+
+
+    await alert.present();
+  }
+
+  async eliminarDoc(nombre: string) {
+    const librosCollection = collection(this.firestore, 'libros');
+    
+    const q = query(librosCollection, where("nombre", "==", nombre));
+    
+    const querySnapshot = await getDocs(q);
+  
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach((docSnap) => {
+        const libroDocRef = doc(librosCollection, docSnap.id);
+        deleteDoc(libroDocRef)
+          .then(() => {
+            console.log("Documento eliminado correctamente");
+            this.alertaLibroEliminado();
+          })
+          .catch((error) => {
+            console.error("Error eliminando documento ", error);
+          });
+      });
+    } else {
+      console.log("No se encontró doc");
+    }
+  }
+  
+
   // Registra al usuario a la base de datos con dos parámetros
   registrar(email: any, password: any) {
     return createUserWithEmailAndPassword(this.auth, email, password);
