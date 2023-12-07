@@ -32,6 +32,27 @@ const routes: Routes = [
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
+  {
+    path: 'comics',
+    loadChildren: () => import('./categoria/comics/comics.module').then( m => m.ComicsPageModule)
+  },
+  {
+    path: 'gastronomia',
+    loadChildren: () => import('./categoria/gastronomia/gastronomia.module').then( m => m.GastronomiaPageModule)
+  },
+  {
+    path: 'ciencias',
+    loadChildren: () => import('./categoria/ciencias/ciencias.module').then( m => m.CienciasPageModule)
+  },
+  {
+    path: 'literatura',
+    loadChildren: () => import('./categoria/literatura/literatura.module').then( m => m.LiteraturaPageModule)
+  },
+  {
+    path: 'economia',
+    loadChildren: () => import('./categoria/economia/economia.module').then( m => m.EconomiaPageModule)
+  },
+
 
 
 ];

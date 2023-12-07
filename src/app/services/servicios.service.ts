@@ -47,8 +47,6 @@ export class ServiciosService {
   }
 
   async ngOnInit() {
-    // If using a custom driver:
-    // await this.storage.defineDriver(MyCustomDriver)
     await this.storage.create();
   }
 
@@ -219,6 +217,36 @@ export class ServiciosService {
   // Elimina documento
   async eliminarLibro(id: any) {
     await deleteDoc(doc(this.firestore, "libros", id));
+  }
+
+  async getLibrosCiencias() {
+    return (
+      await getDocs(query(collection(this.firestore, 'libros'), where("categoria", "==", "CIENCIA")))
+    ).docs.map((libros) => libros.data());
+  }
+
+  async getLibrosComic() {
+    return (
+      await getDocs(query(collection(this.firestore, 'libros'), where("categoria", "==", "COMIC")))
+    ).docs.map((libros) => libros.data());
+  }
+
+  async getLibrosLiteratura() {
+    return (
+      await getDocs(query(collection(this.firestore, 'libros'), where("categoria", "==", "LITERATURA")))
+    ).docs.map((libros) => libros.data());
+  }
+
+  async getLibrosEconomia() {
+    return (
+      await getDocs(query(collection(this.firestore, 'libros'), where("categoria", "==", "ECONOMIA")))
+    ).docs.map((libros) => libros.data());
+  }
+
+  async getLibrosGastronomia() {
+    return (
+      await getDocs(query(collection(this.firestore, 'libros'), where("categoria", "==", "GASTRONOMIA")))
+    ).docs.map((libros) => libros.data());
   }
 
   // Crear consulta con filtro de nombre obtenido de un parámetro

@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
-import { ServiciosService } from '../services/servicios.service';
 import { Router } from '@angular/router';
+import { ServiciosService } from 'src/app/services/servicios.service';
 
 @Component({
-  selector: 'app-inicio',
-  templateUrl: './inicio.page.html',
-  styleUrls: ['./inicio.page.scss'],
+  selector: 'app-literatura',
+  templateUrl: './literatura.page.html',
+  styleUrls: ['./literatura.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class LiteraturaPage implements OnInit {
 
-  constructor(private serviciosService: ServiciosService, private router: Router,) {
+  constructor(private serviciosService: ServiciosService, private router: Router) {
     this.center = { lat: -33.437423, lng: -70.6426087 };
   }
 
@@ -69,7 +68,7 @@ export class InicioPage implements OnInit {
 
   // Obtener libros
   async readLibros() {
-    this.libros = await this.serviciosService.getLibros();
+    this.libros = await this.serviciosService.getLibrosLiteratura();
   }
 
 
@@ -77,6 +76,5 @@ export class InicioPage implements OnInit {
     this.readLibros()
     this.serviciosService.ngOnInit()
   }
-
 
 }

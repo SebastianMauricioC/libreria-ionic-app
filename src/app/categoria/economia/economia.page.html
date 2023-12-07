@@ -1,0 +1,201 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+    rel="stylesheet">
+</head>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Librería Pajaritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <div
+      style="background-color: #121D46; color: white; padding: 2%; margin-bottom: 5vh;">
+      <ion-row>
+        <ion-col>
+          <h1 style="font-weight: bold;">Visítanos</h1>
+          <h1>Merced 346, 8320310 Santiago, Región Metropolitana</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-bottom: 5vh;">
+        <ion-col>
+          <google-map
+            [zoom]="zoom"
+            [center]="center"
+            [options]="options"
+            height="50vh"
+            width="100%">
+          </google-map>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row>
+      <ion-col>
+        <a href="/inicio/">
+          <mat-icon aria-hidden="false" aria-label="cart"
+            fontIcon="shopping_cart"></mat-icon>
+        </a>
+      </ion-col>
+      <ion-col>
+        <h1 style="color: #121D46; font-weight: bold;">LIBRERIAPAJARITOS</h1>
+      </ion-col>
+      <ion-col>
+        <button id="confirmar-cerrar">
+          <mat-icon aria-hidden="false" aria-label="Cerrar sesión"
+            fontIcon="logout">
+          </mat-icon>
+          <ion-alert trigger="confirmar-cerrar" header="Alerta"
+            subHeader="¿Desea realmente cerrar sesión?"
+            [buttons]="alertButtons"></ion-alert>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1 style="color: #121D46; font-weight: bold;">Explorar</h1>
+      </ion-col>
+    </ion-row>
+    <form>
+      <ion-row>
+        <ion-col>
+          <ion-input aria-label="Título, autor, categoría"
+            placeholder="Título, autor, categoría" class="custom"
+            helperText="¡Haga su búsqueda!" [counter]="true" [maxlength]="40"></ion-input>
+        </ion-col>
+        <button style="background-color: inherit;" type="submit" name="submit"><i
+            class="material-icons">search</i></button>
+      </ion-row>
+    </form>
+    <ion-row>
+      <ion-col>
+        <h1 style="color: #121D46; font-weight: bold;">Categorías</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <a href="/comics/" style="text-decoration: none;">
+          <ion-card style="background-color: #EDB2B2;">
+            <ion-card-header>
+              <ion-card-title>Cómics y Manga</ion-card-title>
+            </ion-card-header>
+            <ion-card-content><img style="width: 20%" src="../../assets/cym.png"></ion-card-content>
+          </ion-card>
+        </a>
+      </ion-col>
+      <ion-col>
+        <a href="/gastronomia/" style="text-decoration: none;">
+          <ion-card style="background-color: #EBB9D7;">
+            <ion-card-header>
+              <ion-card-title>Gastronomía</ion-card-title>
+            </ion-card-header>
+            <ion-card-content><img style="width: 20%"
+                src="../../assets/gast.png"></ion-card-content>
+          </ion-card>
+        </a>
+      </ion-col>
+      <ion-col>
+        <a href="/ciencias/" style="text-decoration: none;">
+          <ion-card style="background-color: #CDBEEB;">
+            <ion-card-header>
+              <ion-card-title>Ciencias e informática</ion-card-title>
+            </ion-card-header>
+            <ion-card-content><img style="width: 20%" src="../../assets/cei.png"></ion-card-content>
+          </ion-card>
+        </a>
+      </ion-col>
+      <ion-col>
+        <a href="/literatura/" style="text-decoration: none;">
+          <ion-card style="background-color: #C5EDF4;">
+            <ion-card-header>
+              <ion-card-title>Literatura</ion-card-title>
+            </ion-card-header>
+            <ion-card-content><img style="width: 20%" src="../../assets/lit.png"></ion-card-content>
+          </ion-card>
+        </a>
+      </ion-col>
+      <ion-col>
+        <a href="/economia/" style="text-decoration: none;">
+          <ion-card style="background-color: #C7DCF8;">
+            <ion-card-header>
+              <ion-card-title>Economía y administración</ion-card-title>
+            </ion-card-header>
+            <ion-card-content><img style="width: 20%"
+                src="../../assets/econom.png"></ion-card-content>
+          </ion-card>
+        </a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="background-color: #121D46;">
+        <ion-col>
+          <h1 style="color: #fff; font-weight: bold;">Economía</h1>
+        </ion-col>
+      </ion-col>
+    </ion-row>
+    <ion-row style="background-color: #121D46;">
+      <ion-col>
+        <div *ngFor="let libro of libros">
+          <ion-card>
+            <img alt="{{libro.nombre}}" style="margin-top: 3%; height: 30vh;"
+              src="{{libro.imagen}}" />
+            <ion-card-header>
+              <ion-card-title>{{libro.nombre}}</ion-card-title>
+              <ion-card-subtitle>{{libro.autor}}</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              ${{libro.precio}}
+            </ion-card-content>
+            <ion-card-content>
+              Stock disponible: <p
+                style="color: rgb(226, 107, 127); font-weight: bold;">{{libro.stock}}</p>
+            </ion-card-content>
+            <button type="submit">Eliminar recomendación</button>
+          </ion-card>
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <form (ngSubmit)="agregarLibro()">
+      <ion-row>
+        <ion-col>
+          <h1 style="color: #121D46;">Agregar Libro</h1>
+          <ion-input label="Nombre" labelPlacement="stacked"
+            [(ngModel)]="formData.nombre" name="nombre"></ion-input>
+          <ion-input label="Autor" labelPlacement="stacked"
+            [(ngModel)]="formData.autor" name="autor"></ion-input>
+          <ion-input label="Categoría" labelPlacement="stacked"
+            [(ngModel)]="formData.categoria" name="categoria"></ion-input>
+          <ion-input label="Precio" labelPlacement="stacked"
+            [(ngModel)]="formData.precio" name="precio"></ion-input>
+          <ion-input label="Stock" labelPlacement="stacked"
+            [(ngModel)]="formData.stock" name="stock"></ion-input>
+          <ion-input label="Imagen" labelPlacement="stacked"
+            [(ngModel)]="formData.imagen" name="imagen"></ion-input>
+          <ion-input label="Favoritos" labelPlacement="stacked"
+            [(ngModel)]="formData.favorito" name="favorito"></ion-input>
+        </ion-col>
+        <ion-row>
+          <ion-col>
+            <ion-button color="light" type="submit">Enviar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </form>
+  </ion-grid>
+
+</ion-content>
+
